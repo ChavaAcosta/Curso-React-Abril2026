@@ -1,1 +1,27 @@
 @import "tailwindcss";
+
+@layer components {
+  .button-simple {
+    @apply px-4 py-2 bg-blue-500 text-white rounded;
+  }
+
+  .button-guardar{
+    @apply px-4 py-2 bg-green-500 text-white rounded w-[2rem];
+  }
+
+  .button-eliminar{
+    @apply px-4 py-2 bg-red-400 text-white rounded w-[2rem]; 
+  }
+
+  .button-editar{
+    @apply px-4 py-2 bg-blue-500 text-white rounded w-[2rem];
+  }
+
+  .label{
+    @apply text-sm font-bold text-gray-600 mb-1;
+  }
+
+  .input{
+    @apply border p-2 rounded-lg focus:ring-2 focus:ring-green-400 outline-none;
+  }
+}
