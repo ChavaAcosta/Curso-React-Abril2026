@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SaludoComponent from "../components/SaludoComponent";
 import CardChildren from "../components/CardChildren";
@@ -47,6 +47,14 @@ export default function AppView() {
   const handleSelection = (elemento) => {
     console.log("Evento:", elemento);
   };
+
+
+  useEffect(() => {
+      console.log("Este es el useEffect ejecutandose")
+  },[isTrue])
+
+
+  
 
   return (
     <div className="px-10  justify-center content-center text-center">
