@@ -24,8 +24,8 @@ export default function ProductsView() {
         
             <div className='grid grid-cols-3 gap-4 pt-10'>
                 {
-                    products.map((producto) => (
-                        <ProductCard {...producto} key={producto.id} />
+                    products.map((producto, index) => (
+                        <ProductCard {...producto} key={producto.id || index} />
                     ))
                 }
             </div>

@@ -8,7 +8,7 @@ export default function EditProductView() {
   const [product, setProduct] = useState({})
 
   useEffect(()=>{
-    const respuesta = getByProductId(id).then(product =>{
+    getByProductId(id).then(product =>{
       setProduct(product)
     });
 
@@ -26,7 +26,7 @@ export default function EditProductView() {
       </Link>
     {product &&(
 
-      <FormEditPr oduct id={id} product={product} />
+      <FormEditProduct id={id} product={product} />
     )}
     </>
   );

@@ -1,15 +1,15 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { deleteProduct } from "../services/products/productService";
 
 export default function ProductCard(props) {
-  const nav = useNavigate()
 
   const handleDelete =  async () =>{
     const response = confirm("¿Estas seguro que deseas eliminar?");
     if(response){
       const data = await deleteProduct(props.id)
+      console.log("respuesta eliminar", data)
     }
-    nav('/products')
+    document.location.reload();
   }
   
   return (

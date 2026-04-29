@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
-import { createProduct, getByProductId, updateProduct } from "../services/products/productService";
+import { use, useEffect, useState } from "react";
+import { updateProduct } from "../services/products/productService";
 import { useNavigate } from "react-router-dom";
 
 const FormEditProduct = ({id, product}) => {
   const nav = useNavigate();
-  const [identificador, setIdentificador] = useState(id)
   
   const [data, setData] = useState({
     name: product.name,
@@ -12,6 +11,14 @@ const FormEditProduct = ({id, product}) => {
     price: product.price,
     category: product.category,
   });
+  useEffect(()=>{
+    setData({
+      name: product.name,
+      description: product.description,
+      price: product.price,
+      category: product.category,
+    })
+  },[product])
 
   
 
@@ -28,7 +35,7 @@ const FormEditProduct = ({id, product}) => {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      const respuesta = await updateProduct(id,product);
+      const respuesta = await updateProduct(id,data);
       console.log(respuesta);
     } catch (error) {
       console.log(error);
@@ -108,7 +115,7 @@ const FormEditProduct = ({id, product}) => {
       <input
         type="submit"
         className="bg-indigo-500 w-full py-2 text-white rounded hover:bg-indigo-600 hover:cursor-pointer font-semibold"
-        value={"Agregar Producto"}
+        value={"Actualizar Producto"}
       />
     </form>
   );

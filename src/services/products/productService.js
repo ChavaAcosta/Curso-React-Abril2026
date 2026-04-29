@@ -1,5 +1,4 @@
-import { apiUrl } from "../apiService";
-
+const apiUrl = "https://crud-curso-react-26.onrender.com/api";
 export const getProducts = async () => {
     try {
         const response = await fetch(`${apiUrl}/products`); 
